@@ -82,10 +82,10 @@ function dynamics()
     let s = 0;
     for (let idx = 0; idx < states.length; idx++)
     {
-        for (let jdx = 0; jdx < states.length; jdx++)
-        //for (let zdx = 0; zdx < 20; zdx++)
+        //for (let jdx = 0; jdx < states.length; jdx++)
+        for (let zdx = 0; zdx < 20; zdx++)
         {
-            //jdx = (primes[(idx + timecode) % primes.length] * (zdx+1)) % states.length;
+            jdx = (primes[(idx + timecode) % primes.length] * (zdx+1)) % states.length;
             if (idx == jdx) continue;
             const x1 = states[idx][0];
             const y1 = states[idx][1];
@@ -172,8 +172,8 @@ var dist2 = [];
 var dist3 = [];
 for (let i = 0; i < states.length; i++)
 {
-    selected.push(i == 305);
-    //selected.push(i == 493);
+    //selected.push(i == 305);
+    selected.push(i == 493);
     dist1.push(false);
     dist2.push(false);
     dist3.push(false);
