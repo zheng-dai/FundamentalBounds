@@ -1,1 +1,274 @@
-<meta http-equiv="refresh" content="0; URL='https://openreview.net/pdf?id=gpmL0D4VjN4'" />
+<!DOCTYPE html>
+<html>
+    <!--You should never code like this-->
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>Fundamental Bounds on the Robustness of Image Classifiers</title>
+    <style>
+        @media (orientation: landscape) {
+            .item-header {
+                min-height: 100vh;
+                grid-area: a;
+                background-color: rgb(48,48,48);
+                display: grid;
+                grid-template-areas: 
+                    "a a a a a"
+                    ". b b b ."
+                    ". c d e ."
+                    "f f f f f";
+                grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
+                grid-template-rows: max-content max-content max-content max-content;
+                color: white;
+            }
+        }
+        @media (orientation: portrait) {
+            .item-header {
+                min-height: 100vh;
+                background-color: rgb(48,48,48);
+                display: grid;
+                grid-template-areas: 
+                    "a a a a a"
+                    ". b b b ."
+                    ". c c c ."
+                    ". d d d ."
+                    ". e e e ."
+                    "f f f f f";
+                grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
+                grid-template-rows: max-content max-content max-content max-content max-content max-content;
+                color: white;
+            }
+        }
+        .item-headerheader {
+            grid-area: a;
+            background-color: black;
+            text-align: center;
+            padding-bottom: 5vh;
+            margin-bottom: 16px;
+            padding-top: 10vh;
+        }
+        .item-headerColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .item-headercard {
+            color: silver;
+            background-color: black;
+            border: 1px solid rgb(20,20,20);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            box-shadow: -2px 2px rgba(0, 0, 0, 0.25);
+            transition: box-shadow 0.1s, background-color 0.5s, color 0.2s;
+            transition-timing-function: ease-in-out;
+        }
+        .item-headercard:hover {
+            color: white;
+            background-color: rgb(16, 16, 16);
+            box-shadow: -5px 5px rgba(0, 0, 0, 0.5);
+        }
+        .item-headercard>h3 {
+            margin-bottom: 0;
+        }
+        .item-headercard>h2 {
+            margin-bottom: 0;
+        }
+        .item-headercard>p {
+            margin-top: 0;
+        }
+        .item-headerfooter {
+            grid-area: f;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: black;
+        }
+
+        .item-footer {
+            grid-area: j;
+            background-color: black;
+        }
+
+        .bkg {
+            background: black;
+            position: relative;
+            top: -100%;
+            width: 300%;
+            left: -100%;
+            transition: top 0.5s;
+            transition-timing-function: ease-in-out;
+            z-index: -1;
+        }
+
+        .bkg2 {
+            top: -20%;
+        }
+
+        .item-picture {
+            padding: 0;
+            border: 1px solid white;
+            margin: 36px calc(3% + 2px);
+            background-color: black;
+            width: calc(94% - 4px);
+            height: auto;
+            border-radius: 36px;
+            overflow: hidden;
+        }
+        .item-picture>img {
+            width: 100%;
+        }
+
+        .overlayImage {
+            animation-name: opacityFade;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes opacityFade {
+            0%   {opacity: 0;}
+            30%   {opacity: 0;}
+            70% {opacity: 1;}
+            100% {opacity: 1;}
+        }
+
+        a:link, a:visited {
+            word-break: break-all;
+            color: inherit;
+        }
+
+        a:hover, a:active {
+            word-break: break-all;
+            color: rgb(224,224,255);
+        }
+
+        .imageCaption {
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 80%;
+            margin-top: 8px;
+            border-top: 1px solid white;
+            padding: 6px;
+        }
+    </style>
+</head>
+<!--<body style="margin: 0; padding: 0; overflow: overlay;" onload="initPage()">-->
+<body style="margin: 0; padding: 0;" onload="initPage()">
+    <div class="truebkg"></div>
+    <div class="truebkg2 truebkg3" id="design2"></div>
+    <div id="design1" class="bkg bkg2"></div>
+
+    <div class="item-header">
+        <div class="item-headerheader" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;">
+            <img src="csail.svg" style="filter:invert(100%); height: 8em; opacity: 0;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h1>Fundamental Bounds on the Robustness of Image Classifiers</h1>
+                <span>Zheng Dai<sup>1</sup>, David K. Gifford<sup>1</sup></span>
+                <span><sup>1</sup>Computer Science and Artificial Intelligence Laboratory, Massachusetts Institute of Technology</span>
+            </div>
+            <img src="csail.svg" style="filter:invert(100%); height: 8em;">
+        </div>
+        <div class="item-headercard" style="grid-area: b; text-align: center;">
+            <p><span style="font-variant: small-caps; font-weight: 900; margin-right: 8px;">Abstract</span> We prove that image classifiers are fundamentally sensitive to small perturbations in their inputs.</p>
+        </div>
+        <div class="item-headerColumn" style="grid-area: c;">
+            <div class="item-headercard">
+                <p>
+                    Formal statements and proofs of our results can be found in our full paper at <a href="https://openreview.net/pdf?id=gpmL0D4VjN4">https://openreview.net/pdf?id=gpmL0D4VjN4</a>.
+                </p>
+            </div>
+            <div class="item-headercard">
+                <h2 style="font-style: italic;">Theorem 1</h2>
+                <p style="font-style: italic;">
+                    In all but one image classes for any arbitrary image classifier, most images within that class can be modified to an image of a different class with <span style="font-weight: 900;">O(n)</span> pixel changes, where n is the side length of the image.
+                </p>
+                <h3 style="font-style: italic;">Proof sketch</h3>
+                <p>
+                    1. Construct a Hamming graph using the images of some given image space.
+                </p>
+                <div class="item-picture">
+                    <img src="./hammingGraph.png" style="filter:invert(100%);"></img>
+                    <p class="imageCaption">Construction of a Hamming graph on the set of 2x2 binary images.</p>
+                </div>
+                <p>
+                    2. Leverage the expansion properties of Hamming graphs [1] to show that if the set of images that cannot be modified to images of a different class is too large, then its expansion cannot contain the images of the original set.
+                </p>
+                <div class="item-picture">
+                    <canvas width="640" height="640" style="width: 100%;" id="figure1"></canvas>
+                    <p class="imageCaption">Interactive demo of the Hamming graph expansion property on 3x3 binary images. Click on an image to add or remove it from the considered set. Images within a Hamming distance of 3 will also be highlighted.</p>
+                </div>
+            </div>
+        </div>
+        <div class="item-headerColumn" style="grid-area: d;">
+            <div class="item-headercard">
+                <h2 style="font-style: italic;">Theorem 2</h2>
+                <p style="font-style: italic;">
+                    There exists a classifier where most images of every class cannot be changed to images of a different class with less than <span style="font-weight: 900;">o(n)</span> pixel changes.
+                </p>
+                <h3 style="font-style: italic;">Proof sketch</h3>
+                <p>
+                    Some linear classifiers (such as the one that sums all pixel intensities over the image) satisfy this property if the decision boundary is set to the expected value.
+                </p>
+                <div class="item-picture">
+                    <img src="./classifierDistribution.png" style="filter:invert(100%);"></img>
+                </div>
+            </div>
+            <div class="item-headercard">
+                <h2 style="font-style: italic;">Theorem 3</h2>
+                <p style="font-style: italic;">
+                    Increasing the bit-depth of each pixel decreases the amount of change (measured in Euclidean distance) needed to modify one image to another.
+                </p>
+                <h3 style="font-style: italic;">Proof sketch</h3>
+                <p>
+                    We can find an image that is close to the boundary in the following way: first, we randomly select an image. We then perturb it by a random amount drawn from a continuous distribution. The resulting image is then uniformly randomly distributed over the unit hypercube, which implies that it is very close to a classification boundary due to strong isoperimetry properties of the unit hypercube [2].
+                </p>
+                <div class="item-picture">
+                    <img src="./latticeDiffusion.png" style="filter:invert(100%);"></img>
+                </div>
+                <p>
+                    The higher the bit-depth of the image, the smaller the random perturbation needs to be, which yields the desired result.
+                </p>
+            </div>
+        </div>
+        <div class="item-headercolumn" style="grid-area: e;">
+            <div class="item-headercard">
+                <h2 style="margin-bottom: 16px;">Interpretation</h2>
+                <p>
+                    Our analysis is agnostic to the nature of the image classifier, therefore it applies to even ideal classifiers like the human visual system. Therefore, <span style="font-weight: 900;">O(n)</span> pixel changes should be sufficient to make a semantically impactful change to an image. This does appear to be the case, as demonstrated below:
+                </p>
+                <div class="item-picture">
+                    <div style="display: flex; flex-direction: row; justify-content:space-evenly;">
+                        <div style="margin: 15px; position: relative;">
+                            <img src="./f5a.png" style="image-rendering: pixelated;"></img>
+                            <img src="./f5over.png" style="image-rendering: pixelated; position:absolute; left:0; top:0;" class="overlayImage"></img>
+                        </div>
+                        <div style="margin: 15px; position: relative;">
+                            <img src="./f5b.png" style="image-rendering: pixelated;"></img>
+                            <img src="./f5over.png" style="image-rendering: pixelated; position:absolute; left:0; top:0;" class="overlayImage"></img>
+                        </div>
+                    </div>
+                    <p class="imageCaption">Illustration of how a perturbation of <span style="font-weight: 900;">O(n)</span> pixels can change the semantic content of an image. </p>
+                </div>
+                <p>
+                    Understanding of how the limits of robustness manifests in the human visual system may hint towards how human-machine vision alignment may be aligned.
+                </p>
+            </div>
+            <div class="item-headercard">
+                <h2 style="margin-bottom: 16px;">References</h2>
+                <p>
+                    1. LH Harper. On an isoperimetric problem for hamming graphs. <span style="font-style: italic;">Discrete applied mathematics</span>, 95 (1-3):285–309, 1999.
+                </p>
+                <p>
+                    2. Franck Barthe and Bernard Maurey. Some remarks on isoperimetry of gaussian type. In <span style="font-style: italic;">Annales de l’Institut Henri Poincare (B) Probability and Statistics</span>, volume 36, pp. 419–434. Elsevier, 2000.
+                </p>
+            </div>
+        </div>
+
+        <div class="item-footer" style="color: white; text-align: right; margin-top: 32px; grid-area: f; background-color: black;">
+            <h2 style="margin-bottom: 4px; margin-left: 2vw; margin-right: 2vw; font-variant: small-caps;">Citation</h2>
+            <p style="margin-top: 0; margin-left: 2vw; margin-right: 2vw;">Please cite "Z. Dai and D. Gifford. "Fundamental Bounds on the Robustness of Image Classifiers 2022.". In: <em>The Eleventh International Conference on Learning Representations.</em> 2023.  <span style="font-variant: small-caps;">url:</span> <a href="https://openreview.net/forum?id=gpmL0D4VjN4" style="text-decoration: none;">https://openreview.net/forum?id=gpmL0D4VjN4</a>."</p>
+        </div>
+    </div>
+
+    <script src="widget.js"></script>
+</body>
+</html>
